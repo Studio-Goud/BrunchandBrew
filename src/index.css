@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-crema text-espresso font-body antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: #E9B84C;
+  color: #2B211B;
+}
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #F4EDE1; }
+::-webkit-scrollbar-thumb { background: #B5622F; border-radius: 3px; }
+
+/* Geschulpte rand — als een servetje / taartrand */
+.scallop {
+  --r: 12px;
+  -webkit-mask-image: radial-gradient(circle at 50% 100%, transparent var(--r), black calc(var(--r) + 0.5px));
+  -webkit-mask-size: calc(var(--r) * 4) 100%;
+  -webkit-mask-repeat: repeat-x;
+  mask-image: radial-gradient(circle at 50% 100%, transparent var(--r), black calc(var(--r) + 0.5px));
+  mask-size: calc(var(--r) * 4) 100%;
+  mask-repeat: repeat-x;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee { animation: none; }
+}
