@@ -6,9 +6,10 @@ import {
   ui,
   coffee,
   iced,
-  specials,
-  teaAndMore,
-  sweets,
+  matcha,
+  tea,
+  pastries,
+  tostis,
   food,
   milkNote,
   MAPS_EMBED,
@@ -125,7 +126,7 @@ function App() {
       ? ['Verse koffie', 'Tosti’s', 'Smoothie bowls', 'Verse juices', 'Cinnamon buns', 'Chai & matcha', 'Iced lattes']
       : ['Fresh coffee', 'Grilled cheese', 'Smoothie bowls', 'Fresh juices', 'Cinnamon buns', 'Chai & matcha', 'Iced lattes'];
 
-  const foodIllustrations = [TostiIllustration, BowlIllustration, JuiceIllustration, BunIllustration];
+  const foodIllustrations = [BowlIllustration, JuiceIllustration];
 
   return (
     <div className="min-h-screen bg-crema text-espresso font-body">
@@ -292,11 +293,11 @@ function App() {
                 <PriceList title={t.coffeeHeading} items={coffee} lang={lang} />
                 <div className="space-y-10">
                   <PriceList title={t.icedHeading} items={iced} lang={lang} />
-                  <PriceList title={t.sweetsHeading} items={sweets} lang={lang} />
+                  <PriceList title={t.teaHeading} items={tea} lang={lang} />
                 </div>
                 <div className="space-y-10">
-                  <PriceList title={t.specialsHeading} items={specials} lang={lang} />
-                  <PriceList title={t.teaHeading} items={teaAndMore} lang={lang} />
+                  <PriceList title={t.matchaHeading} items={matcha} lang={lang} />
+                  <PriceList title={t.pastriesHeading} items={pastries} lang={lang} />
                 </div>
               </div>
               <p className="mt-10 inline-block px-4 py-2 bg-butter/20 border border-butter/50 rounded-full text-xs font-semibold text-espresso-soft">
@@ -305,12 +306,36 @@ function App() {
             </div>
           </motion.div>
 
-          {/* Food */}
+          {/* Tosti's */}
+          <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.15 }} className="mt-14">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <TostiIllustration className="w-12 h-12 text-cinnamon" />
+              <h3 className="font-display text-2xl md:text-3xl text-espresso">{t.tostiHeading}</h3>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {tostis.map((item) => (
+                <div
+                  key={item.name.nl}
+                  className="bg-crema rounded-3xl border border-crema-deep p-6"
+                >
+                  <div className="flex items-baseline justify-between gap-4 mb-2">
+                    <p className="font-display text-lg text-espresso">{item.name[lang]}</p>
+                    <span className="font-semibold text-cinnamon tabular-nums shrink-0">
+                      {item.price}
+                    </span>
+                  </div>
+                  <p className="text-sm text-espresso-mist leading-relaxed">{item.desc[lang]}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Vers uit de keuken */}
           <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.15 }} className="mt-14">
             <h3 className="font-display text-2xl md:text-3xl text-espresso text-center mb-8">
               {t.foodHeading}
             </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
               {food.map((item, i) => {
                 const Illustration = foodIllustrations[i % foodIllustrations.length];
                 return (

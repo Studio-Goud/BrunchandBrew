@@ -2,7 +2,7 @@ export type Language = 'nl' | 'en';
 
 export const LANGUAGES: Language[] = ['nl', 'en'];
 
-/* ── Menudata — overgenomen van het menubord bij de kraam ─────── */
+/* ── Menudata — 1-op-1 van de actuele menukaarten ─────────────── */
 
 export interface PricedItem {
   name: Record<Language, string>;
@@ -11,60 +11,99 @@ export interface PricedItem {
 }
 
 export const coffee: PricedItem[] = [
-  { name: { nl: 'Americano', en: 'Americano' }, price: '3,70' },
-  { name: { nl: 'Cappuccino', en: 'Cappuccino' }, price: '3,70' },
-  { name: { nl: 'Espresso', en: 'Espresso' }, price: '3,00' },
-  { name: { nl: 'Espresso macchiato', en: 'Espresso macchiato' }, price: '3,70' },
-  { name: { nl: 'Cortado', en: 'Cortado' }, price: '3,70' },
-  { name: { nl: 'Latte', en: 'Latte' }, price: '3,70' },
-  { name: { nl: 'Latte macchiato', en: 'Latte macchiato' }, price: '4,00' },
-  { name: { nl: 'Flat white', en: 'Flat white' }, price: '4,00' },
+  { name: { nl: 'Espresso', en: 'Espresso' }, price: '3,50' },
+  { name: { nl: 'Macchiato', en: 'Macchiato' }, price: '4,00' },
+  { name: { nl: 'Cortado', en: 'Cortado' }, price: '4,00' },
+  { name: { nl: 'Cappuccino', en: 'Cappuccino' }, price: '4,50' },
+  { name: { nl: 'Americano', en: 'Americano' }, price: '4,50' },
+  { name: { nl: 'Latte', en: 'Latte' }, price: '4,50' },
+  { name: { nl: 'Flat white', en: 'Flat white' }, price: '4,50' },
+  { name: { nl: 'Latte macchiato', en: 'Latte macchiato' }, price: '5,00' },
   { name: { nl: 'Café chocolate', en: 'Café chocolate' }, price: '5,00' },
 ];
 
 export const iced: PricedItem[] = [
-  { name: { nl: 'Iced cappuccino', en: 'Iced cappuccino' }, price: '5,00' },
-  { name: { nl: 'Iced latte', en: 'Iced latte' }, price: '5,00' },
   { name: { nl: 'Iced coffee', en: 'Iced coffee' }, price: '5,00' },
+  { name: { nl: 'Iced latte', en: 'Iced latte' }, price: '5,00' },
+  { name: { nl: 'Iced cappuccino', en: 'Iced cappuccino' }, price: '5,00' },
   { name: { nl: 'Iced chai latte', en: 'Iced chai latte' }, price: '5,00' },
-  { name: { nl: 'Iced matcha', en: 'Iced matcha' }, price: '6,00' },
+  { name: { nl: 'Iced matcha', en: 'Iced matcha' }, price: '6,50' },
 ];
 
-export const specials: PricedItem[] = [
-  { name: { nl: 'Chai latte', en: 'Chai latte' }, price: '5,00' },
-  { name: { nl: 'Pumpkin spice latte', en: 'Pumpkin spice latte' }, price: '5,00' },
-  { name: { nl: 'Matcha latte', en: 'Matcha tea latte' }, price: '5,00' },
+export const matcha: PricedItem[] = [
+  { name: { nl: 'Matcha', en: 'Matcha' }, price: '6,00' },
+  { name: { nl: 'Strawberry matcha', en: 'Strawberry matcha' }, price: '7,00' },
+  { name: { nl: 'Mango matcha', en: 'Mango matcha' }, price: '7,00' },
+];
+
+export const tea: PricedItem[] = [
+  { name: { nl: 'Thee', en: 'Tea' }, price: '4,00' },
+  { name: { nl: 'Verse muntthee', en: 'Fresh mint tea' }, price: '5,00' },
+  { name: { nl: 'Verse gemberthee', en: 'Fresh ginger tea' }, price: '5,00' },
+];
+
+export const pastries: PricedItem[] = [
+  { name: { nl: 'Croissant', en: 'Croissant' }, price: '2,50' },
+  { name: { nl: 'Chocolate bun', en: 'Chocolate bun' }, price: '3,00' },
+  { name: { nl: 'Cinnamon bun', en: 'Cinnamon bun' }, price: '3,00' },
+  { name: { nl: 'Brownie', en: 'Brownie' }, price: '3,00' },
+  { name: { nl: 'Cookie', en: 'Cookie' }, price: '1,50' },
+];
+
+/* Tosti's — met beschrijving, van de tosti-kaart */
+export const tostis: Array<PricedItem & { desc: Record<Language, string> }> = [
   {
-    name: { nl: 'Dirty chai', en: 'Dirty chai' },
-    price: '5,00',
-    note: { nl: 'chai + shot espresso', en: 'chai + espresso shot' },
-  },
-];
-
-export const teaAndMore: PricedItem[] = [
-  { name: { nl: 'Thee', en: 'Tea' }, price: '3,00' },
-  { name: { nl: 'Verse muntthee', en: 'Fresh mint tea' }, price: '4,00' },
-  { name: { nl: 'Verse gemberthee', en: 'Fresh ginger tea' }, price: '4,00' },
-  { name: { nl: 'Warme chocolademelk', en: 'Hot chocolate' }, price: '5,00' },
-  { name: { nl: 'Frisdrank', en: 'Soft drinks' }, price: '3,00' },
-  { name: { nl: 'Water', en: 'Water' }, price: '3,00' },
-];
-
-export const sweets: PricedItem[] = [
-  { name: { nl: 'Cookies', en: 'Cookies' }, price: '3,50' },
-  { name: { nl: 'Brownies', en: 'Brownies' }, price: '3,00' },
-  { name: { nl: 'Gebak & pastries', en: 'Pastries' }, price: '3,00' },
-];
-
-/* Food — vers gemaakt, prijzen wisselen per dag/seizoen */
-export const food: Array<{ name: Record<Language, string>; desc: Record<Language, string> }> = [
-  {
-    name: { nl: "Tosti's", en: 'Grilled cheese' },
+    name: { nl: 'The Classic', en: 'The Classic' },
+    price: '6,00',
     desc: {
-      nl: 'Goudbruin gegrild met échte Hollandse kaas — onze klassieker.',
-      en: 'Grilled golden brown with real Dutch cheese — our classic.',
+      nl: 'Drie lagen brood met ham en gesmolten kaas.',
+      en: 'Three layers of bread with ham and melted cheese.',
     },
   },
+  {
+    name: { nl: 'Traditional Dutch', en: 'Traditional Dutch' },
+    price: '6,00',
+    desc: {
+      nl: 'Drielaags brood met authentieke oude Hollandse kaas.',
+      en: 'Triple-layered bread with authentic old Dutch cheese.',
+    },
+  },
+  {
+    name: { nl: 'Mozzarella / Tomato', en: 'Mozzarella / Tomato' },
+    price: '6,50',
+    desc: {
+      nl: 'Groene basilicumpesto, mozzarella en zongedroogde tomaat.',
+      en: 'Green basil pesto, mozzarella and sun-dried tomatoes.',
+    },
+  },
+  {
+    name: { nl: 'Spanish Serrano', en: 'Spanish Serrano' },
+    price: '7,00',
+    desc: {
+      nl: 'Groene basilicumpesto, kaas, serranoham en zongedroogde tomaat.',
+      en: 'Green basil pesto, cheese, serrano ham and sun-dried tomatoes.',
+    },
+  },
+  {
+    name: { nl: 'Chorizo Cheddar', en: 'Chorizo Cheddar' },
+    price: '7,00',
+    desc: {
+      nl: 'Plakjes chorizo met gesmolten cheddar.',
+      en: 'Slices of chorizo with melted cheddar.',
+    },
+  },
+  {
+    name: { nl: 'Pulled Chicken', en: 'Pulled Chicken' },
+    price: '7,00',
+    desc: {
+      nl: 'Gekruide pulled chicken met kaas.',
+      en: 'Pulled seasoned chicken and cheese.',
+    },
+  },
+];
+
+/* Vers uit de keuken — wisselt per dag/seizoen, geen vaste prijzen */
+export const food: Array<{ name: Record<Language, string>; desc: Record<Language, string> }> = [
   {
     name: { nl: 'Bowls', en: 'Bowls' },
     desc: {
@@ -79,18 +118,11 @@ export const food: Array<{ name: Record<Language, string>; desc: Record<Language
       en: 'Freshly squeezed every morning — ask for today’s juices.',
     },
   },
-  {
-    name: { nl: 'Cinnamon buns', en: 'Cinnamon buns' },
-    desc: {
-      nl: 'Vers gebakken kaneelbroodjes, knapperig en zacht tegelijk.',
-      en: 'Freshly baked cinnamon rolls, crispy and soft at once.',
-    },
-  },
 ];
 
 export const milkNote = {
-  nl: 'Specialty melk (haver · soja · amandel · kokos) + 0,70',
-  en: 'Specialty milk (oat · soy · almond · coconut) + 0.70',
+  nl: 'Specialty melk (oatly · kokos · soja · amandel) + 0,70',
+  en: 'Specialty milk (oatly · coconut · soy · almond) + 0.70',
 };
 
 /* ── UI-teksten ──────────────────────────────────────────────── */
@@ -112,14 +144,15 @@ export const ui = {
     freshDaily: 'Elke dag vers',
     menuKicker: 'Het menu',
     menuTitle: 'Vers gezet, vers gebakken',
-    menuIntro: 'Dezelfde prijzen als op het bord. Alles ook om mee te nemen.',
+    menuIntro: 'Dezelfde prijzen als op de kaart. Alles ook om mee te nemen.',
     coffeeHeading: 'Koffie',
     icedHeading: 'Iced',
-    specialsHeading: 'Lattes & chai',
-    teaHeading: 'Thee & meer',
-    sweetsHeading: 'Zoet',
+    matchaHeading: 'Matcha',
+    teaHeading: 'Thee',
+    pastriesHeading: 'Pastries',
+    tostiHeading: 'Tosti’s',
     foodHeading: 'Vers uit de keuken',
-    foodNote: 'Prijzen wisselen met het seizoen — check het bord of vraag het ons.',
+    foodNote: 'Wisselt per dag en seizoen — check de kaart of vraag het ons.',
     galleryKicker: 'Impressie',
     galleryTitle: 'Van de pass',
     aboutKicker: 'Over ons',
@@ -156,11 +189,12 @@ export const ui = {
     menuIntro: 'Same prices as on the board. Everything available to go.',
     coffeeHeading: 'Coffee',
     icedHeading: 'Iced',
-    specialsHeading: 'Lattes & chai',
-    teaHeading: 'Tea & more',
-    sweetsHeading: 'Sweets',
+    matchaHeading: 'Matcha',
+    teaHeading: 'Tea',
+    pastriesHeading: 'Pastries',
+    tostiHeading: 'Grilled cheese',
     foodHeading: 'Fresh from the kitchen',
-    foodNote: 'Prices change with the seasons — check the board or just ask.',
+    foodNote: 'Changes daily and with the seasons — check the board or just ask.',
     galleryKicker: 'Gallery',
     galleryTitle: 'From the pass',
     aboutKicker: 'About us',
