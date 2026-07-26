@@ -152,15 +152,12 @@ function App() {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2.5 group">
+          <a href="#top" className="flex items-center group">
             <img
               src="/images/logo.webp"
-              alt="Brunch & Brew logo"
-              className="h-9 w-auto transition-transform duration-500 group-hover:scale-105"
+              alt="Brunch & Brew"
+              className="h-11 w-auto transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="font-display text-lg text-espresso tracking-tight">
-              Brunch <span className="text-cinnamon">&amp;</span> Brew
-            </span>
           </a>
           <div className="hidden md:flex items-center gap-7">
             {[
