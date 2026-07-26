@@ -14,6 +14,7 @@ import {
   milkNote,
   MAPS_EMBED,
   MAPS_URL,
+  TRIPADVISOR_URL,
   type PricedItem,
 } from './i18n';
 import {
@@ -46,6 +47,11 @@ const ClockIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} {...icon} aria-hidden>
     <circle cx="12" cy="12" r="8.2" />
     <path d="M12 7.8V12l3 2.2" />
+  </svg>
+);
+const StarIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} {...icon} aria-hidden>
+    <path d="m12 4.4 2.2 4.6 5 .7-3.6 3.6.9 5-4.5-2.4-4.5 2.4.9-5L4.8 9.7l5-.7L12 4.4Z" />
   </svg>
 );
 const ArrowIcon = ({ className }: { className?: string }) => (
@@ -485,6 +491,25 @@ function App() {
                     </div>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-2xl bg-cinnamon/25 border border-cinnamon/50 flex items-center justify-center shrink-0">
+                    <StarIcon className="w-5 h-5 text-butter" />
+                  </div>
+                  <div className="pt-0.5">
+                    <h3 className="font-semibold mb-1">{t.reviewsHeading}</h3>
+                    <p className="text-crema/60 text-sm leading-relaxed">{t.reviewsText}</p>
+                    <a
+                      href={TRIPADVISOR_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-butter hover:text-crema transition-colors mt-2"
+                    >
+                      {t.tripadvisorCta}
+                      <ArrowIcon className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -516,6 +541,15 @@ function App() {
               Brunch <span className="text-cinnamon-soft">&amp;</span> Brew
             </span>
           </div>
+          <a
+            href={TRIPADVISOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-crema/50 text-xs hover:text-crema transition-colors"
+          >
+            <StarIcon className="w-3.5 h-3.5" />
+            TripAdvisor
+          </a>
           <p className="text-crema/40 text-xs text-center">
             © {new Date().getFullYear()} Brunch &amp; Brew — {t.footerTagline}
           </p>

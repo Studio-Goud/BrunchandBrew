@@ -168,6 +168,9 @@ export const ui = {
     hoursSat: 'Zaterdag',
     hoursSun: 'Zondag',
     directions: 'Routebeschrijving',
+    reviewsHeading: 'Reviews',
+    reviewsText: 'Al geweest? Deel je ervaring en help anderen ons te vinden.',
+    tripadvisorCta: 'Bekijk ons op TripAdvisor',
     footerTagline: 'Koffie & brunch in de Markthal Rotterdam',
   },
   en: {
@@ -210,6 +213,9 @@ export const ui = {
     hoursSat: 'Saturday',
     hoursSun: 'Sunday',
     directions: 'Get directions',
+    reviewsHeading: 'Reviews',
+    reviewsText: 'Been here? Share your experience and help others find us.',
+    tripadvisorCta: 'Find us on TripAdvisor',
     footerTagline: 'Coffee & brunch in the Markthal Rotterdam',
   },
 } satisfies Record<Language, Record<string, string>>;
@@ -219,3 +225,6 @@ export const MAPS_EMBED =
 
 export const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Markthal+Rotterdam+Dominee+Jan+Scharpstraat+298';
+
+export const TRIPADVISOR_URL =
+  'https://www.tripadvisor.nl/Restaurant_Review-g188632-d26352718-Reviews-Brunch_And_Brew-Rotterdam_South_Holland_Province.html';
