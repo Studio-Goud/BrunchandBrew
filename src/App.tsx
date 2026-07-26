@@ -15,10 +15,10 @@ import {
   MAPS_EMBED,
   MAPS_URL,
   TRIPADVISOR_URL,
+  INSTAGRAM_URL,
   type PricedItem,
 } from './i18n';
 import {
-  LatteIllustration,
   TostiIllustration,
   BowlIllustration,
   BunIllustration,
@@ -47,6 +47,13 @@ const ClockIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} {...icon} aria-hidden>
     <circle cx="12" cy="12" r="8.2" />
     <path d="M12 7.8V12l3 2.2" />
+  </svg>
+);
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} {...icon} aria-hidden>
+    <rect x="4" y="4" width="16" height="16" rx="4.5" />
+    <circle cx="12" cy="12" r="3.6" />
+    <circle cx="16.6" cy="7.4" r="0.5" fill="currentColor" />
   </svg>
 );
 const StarIcon = ({ className }: { className?: string }) => (
@@ -146,7 +153,11 @@ function App() {
       >
         <nav className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <a href="#top" className="flex items-center gap-2.5 group">
-            <LatteIllustration className="w-8 h-8 text-cinnamon transition-transform duration-500 group-hover:rotate-12" />
+            <img
+              src="/images/logo.webp"
+              alt="Brunch & Brew logo"
+              className="h-9 w-auto transition-transform duration-500 group-hover:scale-105"
+            />
             <span className="font-display text-lg text-espresso tracking-tight">
               Brunch <span className="text-cinnamon">&amp;</span> Brew
             </span>
@@ -510,6 +521,25 @@ function App() {
                     </a>
                   </div>
                 </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-2xl bg-cinnamon/25 border border-cinnamon/50 flex items-center justify-center shrink-0">
+                    <InstagramIcon className="w-5 h-5 text-butter" />
+                  </div>
+                  <div className="pt-0.5">
+                    <h3 className="font-semibold mb-1">{t.followHeading}</h3>
+                    <p className="text-crema/60 text-sm leading-relaxed">{t.followText}</p>
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-butter hover:text-crema transition-colors mt-2"
+                    >
+                      @brunchandbrew.markthal
+                      <ArrowIcon className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -536,20 +566,33 @@ function App() {
       <footer className="bg-espresso border-t border-crema/10 py-8">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <LatteIllustration className="w-6 h-6 text-cinnamon-soft" />
+            <span className="bg-crema rounded-lg px-1.5 py-1 inline-flex">
+              <img src="/images/logo.webp" alt="Brunch & Brew logo" className="h-6 w-auto" />
+            </span>
             <span className="font-display text-crema">
               Brunch <span className="text-cinnamon-soft">&amp;</span> Brew
             </span>
           </div>
-          <a
-            href={TRIPADVISOR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-crema/50 text-xs hover:text-crema transition-colors"
-          >
-            <StarIcon className="w-3.5 h-3.5" />
-            TripAdvisor
-          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-crema/50 text-xs hover:text-crema transition-colors"
+            >
+              <InstagramIcon className="w-3.5 h-3.5" />
+              Instagram
+            </a>
+            <a
+              href={TRIPADVISOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-crema/50 text-xs hover:text-crema transition-colors"
+            >
+              <StarIcon className="w-3.5 h-3.5" />
+              TripAdvisor
+            </a>
+          </div>
           <p className="text-crema/40 text-xs text-center">
             © {new Date().getFullYear()} Brunch &amp; Brew — {t.footerTagline}
           </p>

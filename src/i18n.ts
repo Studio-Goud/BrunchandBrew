@@ -171,6 +171,8 @@ export const ui = {
     reviewsHeading: 'Reviews',
     reviewsText: 'Al geweest? Deel je ervaring en help anderen ons te vinden.',
     tripadvisorCta: 'Bekijk ons op TripAdvisor',
+    followHeading: 'Volg ons',
+    followText: 'Dagelijkse specials en nieuwtjes op Instagram.',
     footerTagline: 'Koffie & brunch in de Markthal Rotterdam',
   },
   en: {
@@ -216,6 +218,8 @@ export const ui = {
     reviewsHeading: 'Reviews',
     reviewsText: 'Been here? Share your experience and help others find us.',
     tripadvisorCta: 'Find us on TripAdvisor',
+    followHeading: 'Follow us',
+    followText: 'Daily specials and news on Instagram.',
     footerTagline: 'Coffee & brunch in the Markthal Rotterdam',
   },
 } satisfies Record<Language, Record<string, string>>;
@@ -228,3 +232,5 @@ export const MAPS_URL =
 
 export const TRIPADVISOR_URL =
   'https://www.tripadvisor.nl/Restaurant_Review-g188632-d26352718-Reviews-Brunch_And_Brew-Rotterdam_South_Holland_Province.html';
+
+export const INSTAGRAM_URL = 'https://www.instagram.com/brunchandbrew.markthal';
